@@ -2,23 +2,18 @@ var express = require('express');
 var router = express.Router();  
 var user = require('../models/user');  
 var crypto = require('crypto');
+var jwt    = require('jsonwebtoken');
+var config = require('../config');
 
 router.post('/', function(req, res, next) {  
     user.findOne(req.body.id, function(err, user) { 
         
         if(err) throw err;
-        res.json({
-                      success: true,
-                      message: 'Enjoy your token!',
-                      token: user.password
-                    });
-        /*
-        if (!user){
+        if (user.length <= 0){
             res.json({ success: false, message: 'Authentication failed. User not found.' });
-        } else if (user) {
-
+        } else if (user.length > 0) {
               // check if password matches
-              if (user.password != req.body.password) {
+              if (user[0].PASSWORD != md5(req.body.password)) {
                 res.json({ success: false, message: 'Authentication failed. Wrong password.' });
               } else {
 
@@ -26,10 +21,11 @@ router.post('/', function(req, res, next) {
                 // create a token with only our given payload
                 // we don't want to pass in the entire user since that has the password
                 const payload = {
-                  admin: user.admin 
+                  roleType: user[0].ROLE_TYPE
                 };
-                    var token = jwt.sign(payload, app.get('superSecret'), {
-                      expiresInMinutes: 1440 // expires in 24 hours
+                
+                    var token = jwt.sign(payload,  config.secret, {
+                      expiresIn: 1440*60 // expires in 24 hours
                     });
 
                     // return the information including token as JSON
@@ -39,8 +35,7 @@ router.post('/', function(req, res, next) {
                       token: token
                     });
               }   
-
-        }*/
+        }
 
     });  
 });  
