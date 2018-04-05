@@ -11,7 +11,7 @@ var jwt    = require('jsonwebtoken'); // used to create, sign, and verify tokens
 var index = require('./routes/index');
 var users = require('./routes/users');
 var Item = require('./routes/Item');  
-var authenticate = require('./routes/authenticate');  
+var authenticate = require('./routes/authenticate'); 
 
 var app = express();
 // view engine setup

@@ -1,0 +1,35 @@
+extends layout
+
+block content
+  .login
+        h1
+          a(href='index.html') Minimal 
+        .login-bottom
+          h2 Login
+          form
+            .col-md-12
+              .login-mail
+                input(type='text', placeholder='Email', required='')
+                i.fa.fa-envelope
+              .login-mail
+                input(type='password', placeholder='Password', required='')
+                i.fa.fa-lock
+              .login-do
+                label.hvr-shutter-in-horizontal.login-sub
+                  input(type='submit', value='login')
+              a.news-letter(href='#')
+                label.checkbox1
+                  input(type='checkbox', name='checkbox')
+                  i  
+                  | Forget Password
+            .clearfix  
+      // 
+      .copy-right
+        p
+          | © 2016 Minimal. All Rights Reserved | Design by 
+          a(href='http://w3layouts.com/', target='_blank') W3layouts
+      // 
+      // scrolling js
+      script(src='js/jquery.nicescroll.js')
+      script(src='js/scripts.js')
+      // //scrolling js

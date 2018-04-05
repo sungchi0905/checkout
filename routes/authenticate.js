@@ -29,16 +29,28 @@ router.post('/', function(req, res, next) {
                     });
 
                     // return the information including token as JSON
+                    res.cookie('auth',token);
+                
                     res.json({
                       success: true,
                       message: 'Enjoy your token!',
                       token: token
                     });
+                
               }   
         }
 
     });  
 });  
+
+
+router.get('/logout', function(req, res, next) {  
+  res.cookie('auth',"");
+  res.json({
+    success: true,
+    message: 'Successfully logged out!'
+  }); 
+}); 
 
 function md5(string) {
     return crypto.createHash('md5').update(string).digest('hex');
