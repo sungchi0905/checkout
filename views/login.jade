@@ -3,25 +3,22 @@ extends layout
 block content
   .login
         h1
-          a(href='index.html') Minimal 
+          a(href='index.html') CheckOut
         .login-bottom
           h2 Login
-          form
+          - if(msg!=null && msg !="" && msg != undefined)
+              div(class='alert alert-danger')=msg
+          form(id ='login-form', method ='POST' action="/authenticate")
             .col-md-12
               .login-mail
-                input(type='text', placeholder='Email', required='')
-                i.fa.fa-envelope
+                input(type='text', placeholder='User Name', required='', id='id', name='id')
+                i.fa.fa-user
               .login-mail
-                input(type='password', placeholder='Password', required='')
+                input(type='password', placeholder='Password', required='', id='password', name='password')
                 i.fa.fa-lock
               .login-do
                 label.hvr-shutter-in-horizontal.login-sub
                   input(type='submit', value='login')
-              a.news-letter(href='#')
-                label.checkbox1
-                  input(type='checkbox', name='checkbox')
-                  i  
-                  | Forget Password
             .clearfix  
       // 
       .copy-right

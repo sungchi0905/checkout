@@ -1,7 +1,7 @@
 var db = require('../dbconnection'); //reference of dbconnection.js  
 var user = {  
-    findOne: function(id, callback) {  
-        return db.query("select * from user where USER_ID=?", [id], callback);  
+    findOneAdmin: function(id, callback) {  
+        return db.query("select * from user where USER_ID=? and ROLE_TYPE=1", [id], callback);  
     },
     
     getAccount: function(id, callback) {  

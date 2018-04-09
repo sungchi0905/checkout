@@ -11,15 +11,12 @@ block content
             span.icon-bar
             span.icon-bar
           h1
-            a.navbar-brand(href='index.html') Minimal
+            a.navbar-brand(href='/')=COMPANY_NAME
         .border-bottom
           .full-left
             section.full-top
               button#toggle
                 i.fa.fa-arrows-alt
-            form.navbar-left-right
-              input(type='text', value='Search...', onfocus="this.value = '';", onblur="if (this.value == '') {this.value = 'Search...';}")
-              input.fa.fa-search(type='submit', value='')
             .clearfix  
           // Brand and toggle get grouped for better mobile display
           // Collect the nav links, forms, and other content for toggling
@@ -74,27 +71,14 @@ block content
                     a.view(href='#') View all messages
               li.dropdown
                 a.dropdown-toggle.dropdown-at(href='#', data-toggle='dropdown')
-                  span.name-caret
-                    | Rackham
+                  span.name-caret=FIRST_NAME+" "+LAST_NAME
                     i.caret
                   img(src='images/wo.jpg')
                 ul.dropdown-menu(role='menu')
                   li
-                    a(href='profile.html')
+                    a(href='/logout')
                       i.fa.fa-user
-                      | Edit Profile
-                  li
-                    a(href='inbox.html')
-                      i.fa.fa-envelope
-                      | Inbox
-                  li
-                    a(href='calendar.html')
-                      i.fa.fa-calendar
-                      | Calender
-                  li
-                    a(href='inbox.html')
-                      i.fa.fa-clipboard
-                      | Tasks
+                      | Logout
           // /.navbar-collapse
           .clearfix
           .navbar-default.sidebar(role='navigation')

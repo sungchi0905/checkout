@@ -11,7 +11,7 @@ var jwt    = require('jsonwebtoken'); // used to create, sign, and verify tokens
 var index = require('./routes/index');
 var users = require('./routes/users');
 var Item = require('./routes/Item');  
-var authenticate = require('./routes/authenticate'); 
+//var authenticate = require('./routes/authenticate'); 
 
 var app = express();
 // view engine setup
@@ -29,7 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 app.use('/Item', Item);  
-app.use('/authenticate', authenticate);  
+//app.use('/authenticate', authenticate);  
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
